@@ -1,0 +1,9 @@
+.icon {
+  width: 50px;
+}
+.temperature {
+  font-size: 50px;
+}
+.temperature-min {
+  margin-left: 10px;
+}
