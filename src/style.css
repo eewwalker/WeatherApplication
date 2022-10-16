@@ -7,3 +7,9 @@
 .temperature-min {
   margin-left: 10px;
 }
+#search-input {
+  width: 500px;
+}
+#search-btn {
+  width: 180px;
+}
