@@ -3,22 +3,38 @@ footer {
   font-size: 14px;
 }
 .weather {
+  background-color: #fafafa;
   max-width: 800px;
   display: block;
   margin: 30px auto;
   border: 1px solid #dadde1;
   border-radius: 5px;
-  padding: 20px;
+  padding: 30px;
+  font-family: sans-serif;
+}
+.container {
 }
 
 .icon {
   width: 50px;
 }
 .temperature {
-  font-size: 50px;
+  font-size: 60px;
 }
 .temperature-min {
   margin-left: 10px;
+}
+.date {
+  font-size: 16px;
+  text-align: right;
+  color: #ee6f57;
+}
+.description {
+  font-size: 16px;
+  text-align: right;
+}
+.farenheit-cel {
+  font-size: 20px;
 }
 #search-input {
   width: 500px;
@@ -27,4 +43,11 @@ footer {
 #search-btn {
   width: 180px;
   margin: 10px 0;
+}
+.city {
+  font-size: 30px;
+  font-weight: 600px;
+  font-family: sans-serif;
+  text-align: right;
+  color: #cb3737;
 }
