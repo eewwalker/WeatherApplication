@@ -1,6 +1,7 @@
 footer {
   text-align: center;
   font-size: 14px;
+  color: #fff;
 }
 strong {
   font-size: 18px;
@@ -47,11 +48,15 @@ strong {
 .date {
   font-size: 16px;
   text-align: right;
+  color: #fff;
 }
 .description {
+  color: #fff;
+  text-transform: capitalize;
   font-size: 16px;
   text-align: right;
 }
+
 .farenheit-cel {
   line-height: 1;
   position: relative;
@@ -68,8 +73,12 @@ strong {
   margin: 10px 0;
 }
 .city {
+  color: #fff;
   font-size: 30px;
   font-weight: 600px;
   font-family: sans-serif;
   text-align: right;
+}
+.forecast-date {
+  color: #fff;
 }
