@@ -30,6 +30,9 @@ function displayTemperature(response) {
     "Wind: " + Math.round(response.data.wind.speed) + "mph");
   let date = document.querySelector(".date");
   date.innerHTML = formatDate(response.data.time * 1000);
+  let icon = document.querySelector(".icon");
+  icon.setAttribute("src", response.data.condition.icon_url);
+  icon.setAttribute("alt", response.data.condition.description);
 }
 
 let apiKey = "047ff5f243b184d84367a2f1o1cta7f9";
