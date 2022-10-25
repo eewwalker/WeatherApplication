@@ -33,6 +33,7 @@ function displayTemperature(response) {
   let icon = document.querySelector(".icon");
   icon.setAttribute("src", response.data.condition.icon_url);
   icon.setAttribute("alt", response.data.condition.description);
+  fahrenheitTemp = response.data.temperature.current;
 }
 
 function search(city) {
@@ -49,5 +50,26 @@ function handleSubmit(event) {
   search(cityInput.value);
 }
 
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector(".temperature");
+  temperature.innerHTML = fahrenheitTemp;
+}
+function changeToCelsius(event) {
+  event.preventDefault();
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  let temperature = document.querySelector(".temperature");
+  temperature.innerHTML = Math.round(celsiusTemp);
+}
+
+let fahrenheitTemp = null;
+search("San Francisco");
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector(".fahrenheit");
+fahrenheitLink.addEventListener("click", changeToFahrenheit);
+
+let celsiusLink = document.querySelector(".celsius");
+celsiusLink.addEventListener("click", changeToCelsius);

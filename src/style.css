@@ -65,7 +65,8 @@ a {
   text-align: right;
 }
 
-.farenheit-cel {
+.fahrenheit,
+.celsius {
   line-height: 1;
   position: relative;
   top: -25px;
@@ -102,4 +103,7 @@ a {
 }
 .forecast-date {
   color: #fff;
+}
+a:hover {
+  color: #6c659d;
 }
