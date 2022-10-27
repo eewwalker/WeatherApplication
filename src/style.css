@@ -6,10 +6,6 @@ footer {
 strong {
   font-size: 18px;
 }
-a {
-  color: #fff;
-  text-decoration: none;
-}
 
 .weather {
   background: radial-gradient(
@@ -64,14 +60,23 @@ a {
   font-size: 16px;
   text-align: right;
 }
+.units .active {
+  color: #fff;
+  cursor: default;
+  text-decoration: none;
+}
+a {
+  color: #a8a8a8;
+  text-decoration: none;
+}
 
-.fahrenheit,
-.celsius {
+.units {
+  color: #a8a8a8;
+  text-decoration: none;
   line-height: 1;
   position: relative;
   top: -25px;
   font-size: 20px;
-  color: #fff;
 }
 #search-input {
   border-radius: 6px;
@@ -104,6 +109,6 @@ a {
 .forecast-date {
   color: #fff;
 }
-a:hover {
-  color: #6c659d;
+.footer {
+  color: #fff;
 }

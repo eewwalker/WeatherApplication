@@ -19,10 +19,12 @@
     <div class="container">
       <div class="weather">
         <div class="row">
-          <div class="col-6">
+          <div class="col-6" id="weather temperature">
             <span class="temperature"></span>
-            <span class="fahrenheit"><a href="#">℉</a>/</span
-            ><span class="celsius"><a href="#">℃</a></span>
+            <span class="units">
+              <a href="#" id="fahrenheit" class="active">℉ </a>|
+              <a href="#" id="celsius">℃</a></span
+            >
 
             <div class="humidity">Humidity:<strong> 84%</strong></div>
             <div class="wind">Wind: <strong> 8mph</strong></div>
@@ -108,12 +110,14 @@
         <footer>
           This project was coded by Emily Walker and is
           <a
+            class="footer"
             href="https://github.com/ewalker24/vanilla-weather-app"
             target="_blank"
             >open-sourced on GitHub</a
           >
           and
           <a
+            class="footer"
             href="https://www.netlify.com/?utm_medium=ppc&utm_source=google&utm_campaign=DSA-Nonbrand-MaxC-US"
             target="_blank"
             >hosted on Netlify</a
