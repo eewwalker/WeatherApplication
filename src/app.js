@@ -17,6 +17,26 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+              <div class="forecast-date">${day}</div>
+              <img class="sat-icon" src="src/cloudy.png" alt="" width="42"/>
+              <div class="forecast-temp">
+                <span class="temperature-max">63°</span
+                ><span class="temperature-min">57°</span>
+              </div>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function displayTemperature(response) {
   let temperature = (document.querySelector(".temperature").innerHTML =
@@ -31,7 +51,6 @@ function displayTemperature(response) {
   let date = document.querySelector(".date");
   let icon = document.querySelector(".icon");
   fahrenheitTemp = response.data.temperature.current;
-
   date.innerHTML = formatDate(response.data.time * 1000);
   icon.setAttribute("src", response.data.condition.icon_url);
   icon.setAttribute("alt", response.data.condition.description);
@@ -69,6 +88,7 @@ function changeToCelsius(event) {
 
 let fahrenheitTemp = null;
 search("San Francisco");
+displayForecast();
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);

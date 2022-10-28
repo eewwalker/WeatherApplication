@@ -22,14 +22,7 @@ strong {
   padding: 30px;
   font-family: sans-serif;
 }
-.icon,
-.sat-icon,
-.sun-icon,
-.mon-icon,
-.tues-icon,
-.wed-icon {
-  width: 60px;
-}
+
 .temperature {
   font-size: 60px;
   color: #fff;
