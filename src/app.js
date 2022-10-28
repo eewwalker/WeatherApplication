@@ -17,22 +17,36 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecastInfo = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
 
-  let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
-              <div class="forecast-date">${day}</div>
-              <img class="sat-icon" src="src/cloudy.png" alt="" width="42"/>
+  forecastInfo.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+              <div class="forecast-date">${formatDay(forecastDay.time)}</div>
+              <img class="sat-icon" src=${forecastDay.condition.icon_url} alt=${
+          forecastDay.condition.icon
+        } width="42"/>
               <div class="forecast-temp">
-                <span class="temperature-max">63°</span
-                ><span class="temperature-min">57°</span>
+                <span class="temperature-max">${Math.round(
+                  forecastDay.temperature.maximum
+                )}</span
+                ><span class="temperature-min">${Math.round(
+                  forecastDay.temperature.minimum
+                )}°</span>
               </div>
             </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -59,7 +73,9 @@ function displayTemperature(response) {
 function search(city) {
   let apiKey = "047ff5f243b184d84367a2f1o1cta7f9";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrlForecast).then(displayForecast);
 }
 
 function handleSubmit(event) {
@@ -88,7 +104,6 @@ function changeToCelsius(event) {
 
 let fahrenheitTemp = null;
 search("San Francisco");
-displayForecast();
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
