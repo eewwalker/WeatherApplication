@@ -1,6 +1,11 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
+  let amPm = hours >= 12 ? "PM" : "AM";
+  if (hours > 12) {
+    hours += ((hours + 11) % 12) + 1;
+  }
+
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -15,7 +20,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return `Last updated: ${day} ${hours}:${minutes} ${amPm}`;
 }
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
